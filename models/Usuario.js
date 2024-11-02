@@ -9,3 +9,5 @@ const usuario = sequelize.define ( 'usuario', {
 } )
 
 module.exports = usuario;
+
+

@@ -11,9 +11,9 @@ exports.getMensajes = async (req, res) => {
 
 exports.getMensajeById = async (req, res) => {
     try {
-        const mensaje = await Mensaje.findByPk(req.params.id);
-        if (mensaje) {
-            res.json(mensaje);
+        const mensajes = await Mensaje.findAll({ where: { id_chat: req.params.id } })
+        if (mensajes) {
+            res.json(mensajes);
         } else {
             res.status(404).json({ error: "mensaje no encontrado" });
         }

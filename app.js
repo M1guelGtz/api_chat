@@ -8,7 +8,7 @@ const UsChat = require('./routes/UsChat')
 const cors = require('cors');
 const app = express();
 app.use(express.json());  
-app.use(cors({ origin: 'http://localhost:4200'})) // Ajusta esto según sea necesario }));
+app.use(cors({ origin: 'http://localhost:4200'}))
 
 app.use('/api/chats', ChatsRoutes);
 app.use('/api/mensajes', MensajesRoutes);

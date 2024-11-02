@@ -11,7 +11,7 @@ exports.getAllContactos = async (req, res) => {
 
 exports.getContactoById = async (req, res) => {
     try {
-        const contacto = await Contacto.findByPk(req.params.id);
+        const contacto = await Contacto.findAll({ where : {id_usuario: req.params.id }});
         if (contacto) {
             res.json(contacto);
         } else {
