@@ -3,7 +3,7 @@ const UsuarioHasChat = require('../models/usuario_has_chat');
 exports.getAllUsChat = async (req, res) => {
     try {
         const uschat = await UsuarioHasChat.findAll();
-        res.json(ushat);
+        res.json(uschat);
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
@@ -12,6 +12,18 @@ exports.getAllUsChat = async (req, res) => {
 exports.getUsChatById = async (req, res) => {
     try {
         const uschat = await UsuarioHasChat.findAll({ where: { Usuario_idUsuario: req.params.id } });
+        if (uschat.length > 0) {
+            res.json(uschat);
+        } else {
+            res.status(404).json({ error: "Chat no encontrado" });
+        }
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+};
+exports.getUsPertenecToChat = async (req, res) => {
+    try {
+        const uschat = await UsuarioHasChat.findAll({ where: { Chat_idChat: req.params.id } });
         if (uschat.length > 0) {
             res.json(uschat);
         } else {

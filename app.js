@@ -16,7 +16,6 @@ app.use('/api/usuarios', UsuariosRoutes);
 app.use('/api/contatos', ContactosRoutes);
 app.use('/api/uschat', UsChat)
 
-
 sequelize.sync()
     .then(() => {
         app.listen(3000, () => console.log('Server running on port 3000'));
